@@ -7,11 +7,16 @@
   "dependencies": {
     "express": "^4.19.2",
     "module-alias": "^2.2.3",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "tsconfig-paths": "^4.2.0"
   },
   "scripts": {
     "watch": "nodemon dist/app.js",
     "start": "npm run build && nodemon dist/app.js",
     "build": "tsc"
+  },
+
+  "_moduleAliases":{
+    "@root": "./dist"
   }
 }

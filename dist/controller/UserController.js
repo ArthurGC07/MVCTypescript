@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
-const QueryObject_1 = require("../models/QueryObject");
+require("module-alias/register");
+const QueryObject_1 = require("@root/models/QueryObject");
 class UserController {
     static async index(req, res) {
         const obj = new QueryObject_1.QueryObject("Arthur", 10);

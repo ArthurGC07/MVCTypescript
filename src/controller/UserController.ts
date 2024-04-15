@@ -1,5 +1,6 @@
+require("module-alias/register")
 import { Request, Response } from "express";
-import { QueryObject } from "../models/QueryObject";
+import { QueryObject } from "@root/models/QueryObject";
 
 export class UserController{
 
