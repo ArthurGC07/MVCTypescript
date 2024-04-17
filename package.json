@@ -5,9 +5,11 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/pg": "^8.11.5",
     "express": "^4.19.2",
     "module-alias": "^2.2.3",
     "nodemon": "^3.1.0",
+    "pg": "^8.11.5",
     "tsconfig-paths": "^4.2.0"
   },
   "scripts": {
@@ -15,8 +17,7 @@
     "start": "npm run build && nodemon dist/app.js",
     "build": "tsc"
   },
-
-  "_moduleAliases":{
+  "_moduleAliases": {
     "@root": "./dist"
   }
 }

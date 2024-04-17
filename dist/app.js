@@ -11,8 +11,9 @@ const port = 3000;
 const router = express_1.default.Router();
 app.use(express_1.default.json());
 app.use(router);
-//routes
+//user Routes
 router.get("/", UserController_1.UserController.index);
+router.post("/createuser", UserController_1.UserController.createUser);
 //starts server
 app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`);

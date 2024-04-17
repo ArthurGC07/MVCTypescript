@@ -11,10 +11,9 @@ app.use(express.json());
 app.use(router);
 
 
-
-
-//routes
+//user Routes
 router.get("/", UserController.index);
+router.post("/createuser", UserController.createUser)
 
 
 
