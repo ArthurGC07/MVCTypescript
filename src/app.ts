@@ -13,14 +13,16 @@ app.use(router);
 
 //user Routes
 router.get("/", UserController.index);
-router.post("/createuser", UserController.createUser)
+router.post("/createuser", UserController.createUser);
+router.put("/updateuser", UserController.updateUserEmail);
+router.delete("/deleteuser", UserController.deleteUser);
+router.get("/login", UserController.login);
 
 
 
 
 
 //starts server
-app.listen(port, () =>
-{
+app.listen(port, () => {
     console.log(`server running at http://localhost:${port}`)
 });
