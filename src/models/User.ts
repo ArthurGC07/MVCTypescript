@@ -36,7 +36,7 @@ export class User {
     }
 
     async selectLogin(email: string): Promise<any> {
-        const query = 'SELECT email, password FROM person WHERE email = $1';
+        const query = 'SELECT * FROM person WHERE email = $1';
         const { rows } = await pool.query(query, [email]);
 
         if (rows.length === 0) {

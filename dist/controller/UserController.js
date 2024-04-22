@@ -12,18 +12,8 @@ const User_1 = require("@root/models/User");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 //jsonwebtoken for login validation
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-//libraries needed for generating a secret key for JWT using crypto
-//crypto generates the key and promisify transform it into a promise
-const crypto_1 = require("crypto");
-const util_1 = require("util");
 //class starts
 class UserController {
-    //generates key for JWT
-    static async keyGenerator(len) {
-        const generateRandomBytes = (0, util_1.promisify)(crypto_1.randomBytes);
-        const buffer = await generateRandomBytes(len);
-        return buffer.toString('hex');
-    }
     static async index(req, res) {
         res.status(200).json({
             "hello": "Welcome"
@@ -75,6 +65,12 @@ class UserController {
             }
         }
     }
+    //generates key for JWT
+    // private static async keyGenerator(len: number): Promise<string> {
+    //     const generateRandomBytes = promisify(randomBytes);
+    //     const buffer = await generateRandomBytes(len);
+    //     return buffer.toString('hex');
+    // }
     static async login(req, res) {
         const user = new User_1.User();
         //validates if it received everything
@@ -96,8 +92,8 @@ class UserController {
             //alocates the request value into the cosnt email
             const email = req.body.email;
             //generates the secretKey
-            const secretkey = await UserController.keyGenerator(20); //this is how a static method is called
-            const token = jsonwebtoken_1.default.sign(email, secretkey);
+            //const secretkey = await UserController.keyGenerator(20) //this is how a static method is called
+            const token = jsonwebtoken_1.default.sign(email, process.env.JWT_SECRET_KEY);
             //send the token to the request
             res.status(200).send({ token });
         }

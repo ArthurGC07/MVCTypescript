@@ -28,7 +28,7 @@ class User {
         await Database_1.pool.query(query, [id]);
     }
     async selectLogin(email) {
-        const query = 'SELECT email, password FROM person WHERE email = $1';
+        const query = 'SELECT * FROM person WHERE email = $1';
         const { rows } = await Database_1.pool.query(query, [email]);
         if (rows.length === 0) {
             return null;

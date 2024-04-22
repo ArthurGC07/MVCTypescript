@@ -1,5 +1,6 @@
 // para rodar o express é necessario baixar os tipos para o express rodando o comando: npm install @types/express
 
+import "dotenv/config";
 import express from "express";
 import { UserController } from "./controller/UserController";
 
